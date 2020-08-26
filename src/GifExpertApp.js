@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { AddCategory } from "./compoents/AddCategory";
-import { GifGrid } from "./compoents/GifGrid";
+import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
+import '@testing-library/jest-dom';
 
-export const GifExpertApp = () => {
+export const GifExpertApp = ({ defaultCategories = [] }) => {
 
-	const [categories, setCategories] = useState(["Dragon Ball"]);
+	// const [categories, setCategories] = useState(["Dragon Ball"]);
+	const [categories, setCategories] = useState(defaultCategories);
 
 	return (
 		<>
