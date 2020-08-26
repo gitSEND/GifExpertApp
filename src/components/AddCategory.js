@@ -4,33 +4,33 @@ import PropTypes from "prop-types";
 
 export const AddCategory = ({ setCategories }) => {
 
-	const [inputValue, setInputValue] = useState("");
-	const handleInputChange = (e) => {
-		setInputValue(e.target.value);
-	};
+    const [inputValue, setInputValue] = useState("");
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
 
-	const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
 
-		e.preventDefault(); // previene el refresco de toda la pagina
+        e.preventDefault(); // previene el refresco de toda la pagina
 
-		if (inputValue.trim().length > 2) {
-			setCategories((cats) => [inputValue, ...cats]);
-			setInputValue("");
-		}
-	};
+        if (inputValue.trim().length > 2) {
+            setCategories((cats) => [inputValue, ...cats]);
+            setInputValue("");
+        }
+    };
 
-	return (
-		<form onSubmit={handleSubmit}>
-			<p>{inputValue}</p>
-			<input
-				type="text"
-				value={inputValue}
-				onChange={handleInputChange}
-			></input>
-		</form>
-	);
+    return (
+        <form onSubmit={handleSubmit}>
+            <p>{inputValue}</p>
+            <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+            ></input>
+        </form>
+    );
 };
 
 AddCategory.propTypes = {
-	setCategories: PropTypes.func.isRequired,
+    setCategories: PropTypes.func.isRequired,
 };

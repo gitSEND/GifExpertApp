@@ -9,35 +9,35 @@ jest.mock('../../hooks/useFetchGifs');
 
 describe('Prueba en el GifGrid', () => {
 
-	const category = 'naruto';
+    const category = 'naruto';
 
-	test('debe de mostrarse correctamente', () => {
-		useFetchGifs.mockReturnValue({
-			data: [],
-			loading: true
-		});
+    test('debe de mostrarse correctamente', () => {
+        useFetchGifs.mockReturnValue({
+            data: [],
+            loading: true
+        });
 
-		const wrapper = shallow(<GifGrid category={category} />)
-		expect(wrapper).toMatchSnapshot();
-	})
+        const wrapper = shallow(<GifGrid category={category} />)
+        expect(wrapper).toMatchSnapshot();
+    })
 
-	test('debe de mostrar items cuando se carga imagenes en useFetchGifs', () => {
-		const gifs = [{
-			id: 'ABC',
-			url: 'https://cualquiera.jpg',
-			title: 'Cualquiera'
-		}];
+    test('debe de mostrar items cuando se carga imagenes en useFetchGifs', () => {
+        const gifs = [{
+            id: 'ABC',
+            url: 'https://cualquiera.jpg',
+            title: 'Cualquiera'
+        }];
 
-		useFetchGifs.mockReturnValue({
-			data: gifs,
-			loading: false
-		});
+        useFetchGifs.mockReturnValue({
+            data: gifs,
+            loading: false
+        });
 
-		const wrapper = shallow(<GifGrid category={category} />)
-		expect(wrapper).toMatchSnapshot();
-		expect(wrapper.find('p').exists()).toBe(false);
-		expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
-	})
+        const wrapper = shallow(<GifGrid category={category} />)
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.find('p').exists()).toBe(false);
+        expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
+    })
 
 
 })
